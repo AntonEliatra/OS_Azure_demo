@@ -1,0 +1,64 @@
+#server.name: kibana
+#server.host: "0"
+#opensearch.hosts: https://localhost:9200
+#opensearch.ssl.verificationMode: none
+#
+#opensearch.username: kibanaserver
+#opensearch.password: kibanaserver
+#
+#opensearch.requestHeadersWhitelist: [securitytenant,authorization]
+#opensearch_security.multitenancy.enabled: true
+#opensearch_security.multitenancy.tenants.preferred: ["Private", "Global"]
+#opensearch_security.readonly_mode.roles: ["kibana_read_only"]
+#
+#opensearch_security.auth.type: "saml"
+#server.xsrf.whitelist: ["/_opendistro/_security/saml/acs/idpinitiated", "/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
+#opensearch_security.cookie.secure: false
+
+server.name: kibana
+server.host: "0"
+opensearch.hosts: https://localhost:9200
+#elasticsearch.ssl.verificationMode: none
+opensearch.username: kibanaserver
+opensearch.password: kibanaserver
+opensearch.requestHeadersWhitelist: ["securitytenant","authorization"]
+
+#opensearch.ssl.certificateAuthorities: ["/usr/share/kibana/config/root-ca.pem"]
+opensearch.ssl.verificationMode: none
+
+#server.ssl.enabled: true
+#server.ssl.key: /usr/share/opensearch-dashboards/config/spock.key
+#server.ssl.certificate: /usr/share/opensearch-dashboards/config/spock.pem
+
+opensearch_security.multitenancy.enabled: true
+
+opensearch_security.multitenancy.tenants.enable_global: true
+opensearch_security.multitenancy.tenants.enable_private: true
+
+opensearch_security.multitenancy.tenants.preferred: ["Private", "Global"]
+opensearch_security.readonly_mode.roles: ["kibana_read_only"]
+opensearch_security.cookie.secure: true
+opensearch_security.cookie.password: "12345678901234567890123456789012"
+#plugins.security.auth.type: "saml"
+#opensearch_security.auth.type: "saml"
+opensearch_security.auth.type: "openid"
+
+opensearch_security.openid.connect_url: "https://login.microsoftonline.com/766f1924-5ad8-4bf3-9212-7940d892084c/v2.0/.well-known/openid-configuration"
+opensearch_security.openid.client_id: "66b674af-ea4e-42ae-ac59-f51f56d8fd06"
+opensearch_security.openid.client_secret: "Mw_5UKSHpjRm-l8A87_ic3kd54X8c~Rs5."
+#opensearch_security.openid.connect_url: "https://login.microsoftonline.com/a483aeb6-2585-47cc-9365-db31ecf4cfec/v2.0/.well-known/openid-configuration"
+#opensearch_security.openid.client_id: "897afcfe-7793-4194-aff7-2a3030cf8a44"
+#opensearch_security.openid.client_secret: "w25OOl-c~U8l6_26Ju36w~I-ziJqm8ZmcK"
+
+#opensearch_security.openid.connect_url: "https://dev-6608064.okta.com/oauth2/default/.well-known/openid-configuration"
+#opensearch_security.openid.client_id: "0oal2qflhsPWG5Xdp5d6"
+#opensearch_security.openid.client_secret: "zEUblvsunATqfOa-g4fq-wDhWYycoWQAIHTrhEHZ"
+opensearch_security.openid.base_redirect_url: "http://localhost:5601"
+
+server.xsrf.whitelist: ["/_opendistro/_security/saml/acs/idpinitiated", "/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
+
+#opensearch_security.openid.connect_url: "http://192.168.1.9:8080/auth/realms/new_realm/.well-known/openid-configuration"
+#opensearch_security.openid.client_id: "test_client"
+#opensearch_security.openid.client_secret: "62865f23-4a6f-4c6e-b235-95fea853631b"
+#opensearch_security.openid.base_redirect_url: "http://localhost:5601"
+
