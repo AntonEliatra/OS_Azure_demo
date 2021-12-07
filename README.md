@@ -1,7 +1,7 @@
 # OS_Azure_demo
 Demo docker-compose with working Azure authentication
 
-This is only for demo perposes and should only be run locally, as the IDP (Azure in this case) points back to localhost:5601
+This is only for demo purposes and should only be run locally, as the IDP (Azure in this case) points back to localhost:5601
 
 
 Just clone and run docker-compose up
